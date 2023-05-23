@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Deploying the project'
             }
-        }
+        } 
 
         stage('ProdDeploy') {
              when {
