@@ -1,0 +1,58 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+# resources:
+#   pipelines:
+#   - pipeline: Agent job 1 # Name of the pipeline resource.
+#     source: Prasad Automation-CI # The name of the pipeline referenced by this pipeline resource.
+#     #project: FabrikamProject # Required only if the source pipeline is in another project
+#     trigger: true 
+# dependencies:
+#   -  Prasad Automation-CI
+trigger:
+- none
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: Variable Group
+
+stages:
+  - stage: Build
+    jobs:
+      - job: 'b1'
+        steps:
+        - script: echo Hello, world! DevOps _ Repo main branch
+          displayName: 'Run a one-line script'
+
+  - stage: Test
+    jobs:
+      - job: 'ppb1'
+        steps:
+        - script: echo Hello, world! 
+          displayName: 'Run a one-line script'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)'
+            ArtifactName: 'Build Artifact'
+            publishLocation: 'container'
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your commands here
+              
+              echo 'Hello world. $(Build.Repository.ID)'
+
+        # - task: PublishBuildArtifacts@1
+        #   inputs:
+        #     PathtoPublish: 'target'
+        #     ArtifactName: 'Build Artifact'
+        #     publishLocation: 'container'
+
+  - stage: Deploy
+    jobs:
+      - job: 'p1'
+        steps:
+            - script: echo Hello, world!
