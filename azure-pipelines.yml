@@ -1,15 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-# resources:
-#   pipelines:
-#   - pipeline: Agent job 1 # Name of the pipeline resource.
-#     source: Prasad Automation-CI # The name of the pipeline referenced by this pipeline resource.
-#     #project: FabrikamProject # Required only if the source pipeline is in another project
-#     trigger: true 
-# dependencies:
-#   -  Prasad Automation-CI
 trigger:
 - none
 pool:
