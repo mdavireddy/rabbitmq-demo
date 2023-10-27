@@ -8,6 +8,6 @@ class RabbitmqDemoApplicationTests {
 
     @Test
     void contextLoads() {
-    }
+    } 
 
 }
