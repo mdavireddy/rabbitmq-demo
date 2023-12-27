@@ -44,17 +44,17 @@ stages:
       - job: 'p1'
         steps:
             - script: echo Hello, world!
-            - task : ServiceNow-DevOps-Server-Change-Acceleration@1
+            - task: ServiceNow-DevOps-Server-Change-Acceleration@1
               inputs:
-                connectedServiceName: empmanuutah-Manohar_Project-ServiceNow DevOps Service Connection
-                changeRequestDetails: |
-                  {
-                    "setCloseCode": false,
-                    "autoCloseChange": true,
-                    "attributes": {
-                      "category": "DevOps",
-                      "priority": "2",
-                      "comments": "This is a sample pipeline script to be added in change step",
-                      "work_notes": "Update this to work_notes"
+                  connectedServiceName: 'empmanuutah-Manohar_Project-ServiceNow DevOps Service Connection'
+                  changeRequestDetails: |
+                    {
+                      "setCloseCode": false,
+                      "autoCloseChange": true,
+                      "attributes": {
+                        "category": "DevOps",
+                        "priority": "2",
+                        "comments": "This is a sample pipeline script to be added in change step",
+                        "work_notes": "Update this to work_notes"
+                      }
                     }
-                  }
