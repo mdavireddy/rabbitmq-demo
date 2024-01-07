@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                expression {env.GIT_BRANCH == 'origin/master'}
+                expression {env.GIT_BRANCH == 'origin/main'}
             }
             steps {
                 echo 'Deploying the project'
@@ -25,7 +25,7 @@ pipeline {
 
         stage('ProdDeploy') {
              when {
-                expression {env.GIT_BRANCH == 'origin/master'}
+                expression {env.GIT_BRANCH == 'origin/main'}
             }
             steps {
                 echo 'Deploying the project'
