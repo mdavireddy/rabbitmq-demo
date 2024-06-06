@@ -1,9 +1,9 @@
 name: rest-service
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main1" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main1" ]
 jobs:
   Step1:
     name: Step1
