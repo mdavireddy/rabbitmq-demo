@@ -9,9 +9,9 @@ name: Action with Env
 
 on:
   push:
-    branches: [ "main1" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main1" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -25,6 +25,8 @@ env:
   CI_PROJECT_TITLE: ${{ env.GITHUB_RUN_ID }}
   CI_JOB_NAME: ${{ env.GITHUB_REPOSITORY}+'/'+ env.GITHUB_WORKFLOW }}
   CI_PROJECT_PATH: ${{ env.GITHUB_JOB }}
+  CI_REPOSITORY_NAME: ${{ env.CI_REPOSITORY_NAME }}
+  CI_RUN_ATTEMPT: ${{ env.GITHUB_RUN_ATTEMPT }}
   
   
 jobs:
