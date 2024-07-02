@@ -26,6 +26,8 @@ env:
   CI_PROJECT_PATH: ${{ github.job }}
   CI_REPOSITORY_NAME: ${{ github.repository }}
   CI_RUN_ATTEMPT: ${{ github.run_attempt }}
+  CI_PROJECT_ID: ${{ github.run_id }}
+  CI_PROJECT_TITLE: ${{ github.repository }}
   
   
 jobs:
