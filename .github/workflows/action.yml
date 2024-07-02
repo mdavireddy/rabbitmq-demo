@@ -44,7 +44,7 @@ jobs:
    name: deploy
    needs: ServiceNowDevOpsChange
    runs-on: ubuntu-latest
-   environment: deploy-gates-demo
+   environment: deployment_gate
    steps: 
      - name: RUn deployemnt scripts
        run: echo 'hello'
