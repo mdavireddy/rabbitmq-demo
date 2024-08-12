@@ -73,8 +73,8 @@ jobs:
     steps:
       - name: create artifact
         run: |
-          - sndevopscli create artifact -a "[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]"
-          - sndevopscli create package -n "Test_Package" -a "[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]"
+           sndevopscli create artifact -a "[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]"
+           sndevopscli create package -n "Test_Package" -a "[{"name": "com:customactiondemo","version": "1.${{ github.run_number }}","semanticVersion": "1.${{ github.run_number }}.0","repositoryName": "${{ github.repository }}"}]"
 
   ServiceNowDevOpsSonarScanResults:
     name: deploy
@@ -87,4 +87,4 @@ jobs:
     steps:
       - name: devops soanr results
         run: |
-          - sndevopscli create sonar -url 'https://sonarcloud.io' -projectKey 'xxxxxxx'
+          sndevopscli create sonar -url 'https://sonarcloud.io' -projectKey 'xxxxxxx'
