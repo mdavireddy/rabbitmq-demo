@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     container:
-      image: mdavireddy/sndevops:1.0.0
+      image: mdavireddy/sndevops:2.0.0
     env:
       CI_JOB_NAME: "ArtifactAndPackage"
     steps:
@@ -81,7 +81,7 @@ jobs:
     needs: ArtifactAndPackage
     runs-on: ubuntu-latest
     container:
-      image: mdavireddy/sndevops:1.0.0
+      image: mdavireddy/sndevops:2.0.0
     env:
       CI_JOB_NAME: "ServiceNowDevOpsSonarScanResults"
     steps:
