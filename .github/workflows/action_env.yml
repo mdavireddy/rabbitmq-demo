@@ -58,7 +58,9 @@ jobs:
     needs: ServiceNowDevOpsChange
     container:
       image: mdavireddy/sndevops:2.0.0
-
+    env:
+     CI_JOB_NAME: 'ServiceNowDevOpsChange'
+     
     steps:
     - name : update change
       run: |
