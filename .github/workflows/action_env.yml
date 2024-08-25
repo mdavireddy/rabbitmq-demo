@@ -17,7 +17,7 @@ env:
   CI_REPOSITORY_NAME: ${{ github.repository }}
   CI_RUN_ATTEMPT: ${{ github.run_attempt }}
   CI_PIPELINE_NAME: ${{ github.repository }}/${{github.workflow}}
-  CI_COMMIT_BRANCH: $${{ github.ref_name }}
+  CI_COMMIT_BRANCH: ${{ github.ref_name }}
   CI_WORKFLOW_NAME: ${{ github.workflow }}
 
 jobs:
@@ -78,4 +78,4 @@ jobs:
       steps:
         - name: devops soanr results
           run: |
-            sndevopscli create sonar -url 'https://sonarcloud.io' -projectKey 'xxxxxxx'
+            sndevopscli create sonar -url 'https://sonarcloud.io' -projectKey 'mdavireddy_service-discovery'
