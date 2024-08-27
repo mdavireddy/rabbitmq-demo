@@ -2,9 +2,9 @@ name: Action with Env
 
 on:
   push:
-    branches: ["main1"]
+    branches: ["main"]
   pull_request:
-    branches: ["main1"]
+    branches: ["main"]
 
 permissions:
   contents: read
