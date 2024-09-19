@@ -38,6 +38,7 @@ jobs:
   postDeploy:
       runs-on: ubuntu-latest
       environment : deployment_gate
+      needs: deploy
       steps:
       - name: Build with Maven
         run: echo $HOME      
