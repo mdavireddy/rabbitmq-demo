@@ -31,10 +31,11 @@ jobs:
           changeCreationTimeOut: '3600'
           abortOnChangeCreationFailure: true
           abortOnChangeStepTimeout: true
-          deployment-gate: '{"environment":"deployment_gate","jobName":"postDeploy"}'
+          deployment-gate: '{"environment":"deployment_gate","jobId": "postDeploy", "jobName":"PostDeploy"}'
 
 
   postDeploy:
+      name: PostDeploy
       runs-on: ubuntu-latest
       environment : deployment_gate
       needs: deploy
