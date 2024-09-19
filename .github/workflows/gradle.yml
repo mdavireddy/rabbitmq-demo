@@ -32,8 +32,7 @@ jobs:
           abortOnChangeCreationFailure: true
           abortOnChangeStepTimeout: true
           deployment-gate: '{"environment":"deployment_gate","jobName":"postDeploy"}'
-      - name: Output of Change Creation
-        run: echo "change-request-number = ${{ steps.create.outputs.change-request-number }}" >> $GITHUB_OUTPUT
+
 
   postDeploy:
       runs-on: ubuntu-latest
@@ -41,5 +40,5 @@ jobs:
       needs: deploy
       steps:
       - name: Build with Maven
-        run: echo $HOME      
+        run: echo $HOME       
    
