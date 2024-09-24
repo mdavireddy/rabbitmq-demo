@@ -8,7 +8,7 @@ pipeline {
                     git  branch: 'main', url: 'https://github.com/mdavireddy/rabbitmq-demo.git'
                 }
                 dir('service-discovery') {
-                    git  branch: 'main', url: 'https://github.com/mdavireddy/service-discovery.git'
+                    git  branch: 'master', url: 'https://github.com/mdavireddy/service-discovery.git'
                 }
                  dir('rest-service') {
                     git  branch: 'main', url: 'https://github.com/mdavireddy/rest-service.git'
