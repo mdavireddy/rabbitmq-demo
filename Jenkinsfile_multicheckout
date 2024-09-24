@@ -7,11 +7,11 @@ pipeline {
                 dir('rabbitmq-demo') {
                     git  branch: 'main', url: 'https://github.com/mdavireddy/rabbitmq-demo.git'
                 }
-                dir('service-discovery') {
-                    git  branch: 'main', url: 'https://github.com/mdavireddy/service-discovery.git'
+                dir('java-practice') {
+                    git  branch: 'main', url: 'https://github.com/mdavireddy/java-practice.git'
                 }
-                 dir('rest-service') {
-                    git  branch: 'main', url: 'https://github.com/mdavireddy/rest-service.git'
+                 dir('now-repo') {
+                    git  branch: 'main', url: 'https://github.com/mdavireddy/now-repo.git'
                 }
                 sh 'ls'
             }
