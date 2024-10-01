@@ -9,7 +9,7 @@ on:
 permissions:
   contents: read
 env:
-  SNOW_URL: ${{ secrets.SNOW_URL}}
+  SNOW_URL: ${{ secrets.SNOW_URL }}
   SNOW_TOKEN: ${{ secrets.SNOW_TOKEN }}
   SNOW_TOOLID: ${{ secrets.SNOW_TOOLID }}
   CI_PIPELINE_ID: ${{ github.run_id }}
