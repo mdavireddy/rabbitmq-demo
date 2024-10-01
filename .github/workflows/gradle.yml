@@ -1,45 +1,46 @@
-name: rest-service
+name: Action with Env
+
 on:
   push:
-    branches: [ "main1" ]
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+env:
+  SNOW_URL: ${{ secrets.SNOW_URL }}
+  SNOW_TOKEN: ${{ secrets.SNOW_TOKEN }}
+  SNOW_TOOLID: ${{ secrets.SNOW_TOOLID }}
+  CI_PIPELINE_ID: ${{ github.run_id }}
+  CI_API_V4_URL: ${{ github.server_url }}
+  CI_JOB_ID: ${{ github.run_id }}
+  CI_PROJECT_PATH: ${{ github.job }}
+  CI_REPOSITORY_NAME: ${{ github.repository }}
+  CI_RUN_ATTEMPT: ${{ github.run_attempt }}
+  CI_PROJECT_TITLE: ${{ github.repository }}/${{github.workflow}}
+  CI_COMMIT_BRANCH: ${{ github.ref_name }}
+  CI_WORKFLOW_NAME: ${{ github.workflow }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Build with Maven
-      run: echo  $HOME
-      
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:     
-      - name: ServiceNow Change
-        uses: ServiceNow/servicenow-devops-change@v4.0.0
-        id: create
-        with:
-          devops-integration-token: ${{ secrets.SNOW_TOKEN }}
-          instance-url: ${{ secrets.SNOW_URL }}
-          tool-id: ${{ secrets.SNOW_TOOLID }}
-          context-github: ${{ toJSON(github) }}
-          job-name: 'Deploy'
-          change-request: '{"setCloseCode":"true","autoCloseChange":true,"attributes":{"short_description":"Automated Software Deployment","description":"Automated Software Deployment.","assignment_group":"a715cd759f2002002920bde8132e7018","implementation_plan":"Software update is tested and results can be found in Test Summaries Tab; When the change is approved the implementation happens automated by the CICD pipeline within the change planned start and end time window.","backout_plan":"When software fails in production, the previous software release will be re-deployed.","test_plan":"Testing if the software was successfully deployed"}}'
-          interval: '100'
-          timeout: '3600'
-          changeCreationTimeOut: '3600'
-          abortOnChangeCreationFailure: true
-          abortOnChangeStepTimeout: true
-          deployment-gate: '{"environment":"deployment_gate","jobId": "postDeploy", "jobName":"PostDeploy"}'
+      - name: Set up JDK 17
+        run: |
+          echo 'hello'
 
+  ServiceNowDevOpsSecurityScan:
+     runs-on: ubuntu-latest
+     needs: build
+     container:
+       image: mdavireddy/sndevops:2.0.0
+     env:
+       CI_JOB_NAME: "ServiceNowDevOpsSecurityScan"
 
-  postDeploy:
-      name: PostDeploy
-      runs-on: ubuntu-latest
-      environment : deployment_gate
-      needs: deploy
-      steps:
-      - name: Build with Maven
-        run: echo $HOME       
-   
+     steps:
+       - name: create change
+         run: |
+           sndevopscli create securityScan -p '{"scanner": "Veracode", "applicationName": "", "buildVersion": "", "securityToolId": ""}'
+
+  
