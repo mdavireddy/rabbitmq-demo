@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Set up JDK 17
         run: |
-          echo 'hello'
+          echo 'hello '
 
   ServiceNowDevOpsSecurityScan:
      runs-on: ubuntu-latest
