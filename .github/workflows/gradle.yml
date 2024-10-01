@@ -39,8 +39,7 @@ jobs:
        CI_JOB_NAME: "ServiceNowDevOpsSecurityScan"
 
      steps:
-       - name: create change
+       - name: security scan
          run: |
-           sndevopscli create securityScan -p '{"scanner": "Veracode", "applicationName": "", "buildVersion": "", "securityToolId": ""}'
-
+           sndevopscli create securityScan -p "{\"scanner\": \"Veracode\", \"applicationName\": \"\", \"buildVersion\": \"\", \"securityToolId\": \"\"}"
   
