@@ -41,5 +41,5 @@ jobs:
      steps:
        - name: security scan
          run: |
-           sndevopscli create securityScan -p "{\"scanner\": \"Veracode\", \"applicationName\": \"VeraDemo8\", \"buildVersion\": \"\", \"securityToolId\": \"\"}"
+           sndevopscli create securityScan -p "{\"scanner\": \"Veracode\", \"applicationName\": \"VeraDemo10\", \"buildVersion\": \"21 Mar 2023 Static\", \"securityToolId\": \"\"}"
   
